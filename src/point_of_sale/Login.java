@@ -109,12 +109,12 @@ public class Login extends javax.swing.JFrame implements Runnable{
         List<user> u = c.getUsers();
         boolean band = true;
         for(user o : u){
-            System.out.println(o.getUsername());
             if(o.getUsername().equals(txtUsuario.getText()) && o.getPass().equals(pass.getText())){
                 principal p = new principal(true);
                 p.setVisible(true);
                 p.setLocationRelativeTo(null);
                 band = true;
+                break;
             }else{
                 band = false;
             }

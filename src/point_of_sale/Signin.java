@@ -126,7 +126,7 @@ public static String datos="", contra="";
             connection c = new connection();
             c.saveUser(u);
             JOptionPane.showMessageDialog(null, "El usuario ha sido registrado");
-            this.dispose();
+            this.setVisible(false);
              principal p = new principal();
              p.setVisible(true);
         }else{
