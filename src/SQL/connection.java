@@ -154,7 +154,7 @@ public class connection {
             ps.setString(3, users.getFull_name());
             ps.setString(4, users.getUsername());
             ps.executeUpdate();
-
+            
         } catch (SQLException e) {
             System.out.println("No sé pudo insertar el dato");
         }

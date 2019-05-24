@@ -1,5 +1,6 @@
 package point_of_sale;
-
+import SQL.connection;
+import objects.*;
 import javax.swing.JOptionPane;
 
 public class Signin extends javax.swing.JFrame {
@@ -7,6 +8,8 @@ public static String datos="", contra="";
     /** Creates new form Signin */
     public Signin() {
         initComponents();
+        this.setTitle("Registrarse");
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -119,22 +122,23 @@ public static String datos="", contra="";
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if(txtContra.getText().equals(txtConfir.getText())){
-            datos = "Usuario: "+txtUsuario.getText()+
-            "\nNombre: "+txtNombre.getText()+
-            "\nContraseña: "+txtContra.getText();
-            contra= txtContra.getText();
-            if(Admi.isSelected()){
-              this.setVisible(false);
-            }else{
-                
-            }
+            user u = new user(0, txtUsuario.getText(), txtContra.getText(), txtNombre.getText());
+            connection c = new connection();
+            c.saveUser(u);
+            JOptionPane.showMessageDialog(null, "El usuario ha sido registrado");
+            this.dispose();
+             principal p = new principal();
+             p.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(null, "Contraseña Invátida.\nFavor de verificar que colocó bien la contraseña");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.setVisible(false);
+        this.dispose();
+        principal p = new principal();
+        p.setVisible(true);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

@@ -28,6 +28,7 @@ public class principal extends javax.swing.JFrame implements Runnable{
      }
     public principal(boolean t){
         initComponents();
+        this.setLocationRelativeTo(null);
          to_sell s = new to_sell();
         s.setSize(900,500);
         s.setLocation(5, 5);
