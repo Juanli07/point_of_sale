@@ -43,11 +43,43 @@ public class connection {
         return users;
     }
     
+    
+    
      public List<product> getProducts(){
         List<product> products = new ArrayList();
         try{
             Connection con = getConnection();
             PreparedStatement ps = con.prepareStatement("SELECT * FROM product");
+            ResultSet res= ps.executeQuery();
+            while(res.next()){
+                products.add(new product(res.getInt("code"), res.getString("name"), res.getInt("quantity"), res.getFloat("price")));
+            }
+        }catch(SQLException e){
+            System.out.println("No existen datos");
+        }
+        return products;
+    }
+     
+     public List<product> getProducts(int code){
+        List<product> products = new ArrayList();
+        try{
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM product WHERE code = "+code);
+            ResultSet res= ps.executeQuery();
+            while(res.next()){
+                products.add(new product(res.getInt("code"), res.getString("name"), res.getInt("quantity"), res.getFloat("price")));
+            }
+        }catch(SQLException e){
+            System.out.println("No existen datos");
+        }
+        return products;
+    }
+     
+      public List<product> getProducts(String name){
+        List<product> products = new ArrayList();
+        try{
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM product LIKE name = "+name+"%");
             ResultSet res= ps.executeQuery();
             while(res.next()){
                 products.add(new product(res.getInt("code"), res.getString("name"), res.getInt("quantity"), res.getFloat("price")));
@@ -71,5 +103,86 @@ public class connection {
             System.out.println("No existen datos");
         }
         return daily;
+    }
+    
+    public void saveUser(user users) {
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("INSERT INTO user (username, pass, full_name) VALUES(?, ? ,?)");
+            ps.setString(1, users.getUsername());
+            ps.setString(2, users.getPass());
+            ps.setString(3, users.getFull_name());
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("No sé pudo insertar el dato");
+        }
+    }
+    public void saveProduct(product products) {
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("INSERT INTO product (code, name, quantity, price) VALUES(?, ?, ? ,?)");
+            ps.setInt(1, products.getCode());
+            ps.setString(2, products.getName());
+            ps.setInt(3, products.getQuantity());
+            ps.setFloat(4, products.getPrice());
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("No sé pudo insertar el dato");
+        }
+    }
+    
+    public void saveDaily(daily_sales daily) {
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("INSERT INTO daily_sales (quantity) VALUES(?)");
+            ps.setFloat(1, daily.getQuantity());
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("No sé pudo insertar el dato");
+        }
+    }
+    
+    public void updateUser(user users){
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("UPDATE user SET username = ?, pass = ?, full_name = ? WHERE username = ?");
+            ps.setString(1, users.getUsername());
+            ps.setString(2, users.getPass());
+            ps.setString(3, users.getFull_name());
+            ps.setString(4, users.getUsername());
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("No sé pudo insertar el dato");
+        }
+    }
+    
+    public void updateProduct(product products){
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("UPDATE product SET quantity = ? WHERE code = ?");
+            ps.setInt(1, products.getQuantity());
+            ps.setInt(2, products.getCode());
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("No sé pudo insertar el dato");
+        }
+    }
+    
+     public void updateDaily(daily_sales daily) {
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("UPDATE daily_sales SET quantity = ? WHERE date = ?");
+            ps.setFloat(1, daily.getQuantity());
+            ps.setString(2, daily.getDate());
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("No sé pudo insertar el dato");
+        }
     }
 }
