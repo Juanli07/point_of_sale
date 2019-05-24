@@ -102,7 +102,7 @@ public class principal extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         add s = new add();
         s.setSize(900,500);
-        s.setLocation(5, 5);
+        s.setLocation(80, 5);
         panel.removeAll();
         panel.repaint();
         panel.revalidate();

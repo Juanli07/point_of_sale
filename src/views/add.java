@@ -98,7 +98,7 @@ public class add extends javax.swing.JPanel {
                 btnFinishActionPerformed(evt);
             }
         });
-        add(btnFinish, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, -1, -1));
+        add(btnFinish, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, -1, -1));
 
         jLabel4.setText("Precio de Producto");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, -1, -1));

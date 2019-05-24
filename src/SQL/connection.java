@@ -69,7 +69,6 @@ public class connection {
             while(res.next()){
                 products.add(new product(res.getInt("code"), res.getString("name"), res.getInt("quantity"), res.getFloat("price")));
             }
-            System.out.println(products.get(0).getName());
         }catch(SQLException e){
             System.out.println("No existen datos");
         }
@@ -164,9 +163,10 @@ public class connection {
     public void updateProduct(product products){
         try {
             Connection con = getConnection();
-            PreparedStatement ps = con.prepareStatement("UPDATE product SET quantity = ? WHERE code = ?");
+            PreparedStatement ps = con.prepareStatement("UPDATE product SET quantity = ?, price = ? WHERE code = ?");
             ps.setInt(1, products.getQuantity());
-            ps.setInt(2, products.getCode());
+            ps.setFloat(2, products.getPrice());
+            ps.setInt(3, products.getCode());
             ps.executeUpdate();
 
         } catch (SQLException e) {
