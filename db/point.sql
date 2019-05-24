@@ -8,9 +8,8 @@ pass VARCHAR(50) NOT NULL,
 full_name LONGTEXT
 );
 CREATE TABLE product(
-id INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+code INT(13) NOT NULL PRIMARY KEY,
 name VARCHAR(50),
-code VARCHAR(13),
 quantity INT(10),
 price FLOAT(7,2)
 );

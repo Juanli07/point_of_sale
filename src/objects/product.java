@@ -2,27 +2,22 @@
 package objects;
 
 public class product {
-    private int id;
+    private int code;
     private String name;
-    private String code;
     private int quantity;
     private float price;
     
-    public product(int id, String name, String code, int quantity, float price){
-        this.id = id;
-        this.name = name;
+    public product(int code, String name, int quantity, float price){
         this.code = code;
+        this.name = name;
         this.quantity = quantity;
         this.price = price;
     }
-    public int getId(){
-        return this.id;
+    public int getCode(){
+        return this.code;
     }
     public String getName(){
         return this.name;
-    }
-    public String getCode(){
-        return this.code;
     }
     public int getQuantity(){
         return this.quantity;
