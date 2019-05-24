@@ -64,7 +64,7 @@ public class principal extends javax.swing.JFrame implements Runnable{
         panel.setLayout(panelLayout);
         panelLayout.setHorizontalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 910, Short.MAX_VALUE)
+            .addGap(0, 990, Short.MAX_VALUE)
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,8 +72,9 @@ public class principal extends javax.swing.JFrame implements Runnable{
         );
 
         getContentPane().add(panel);
-        panel.setBounds(20, 0, 910, 460);
+        panel.setBounds(0, 0, 990, 460);
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/iconfinder_add_134224.png"))); // NOI18N
         jButton2.setText("Agregar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,8 +82,9 @@ public class principal extends javax.swing.JFrame implements Runnable{
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(250, 470, 130, 31);
+        jButton2.setBounds(250, 470, 130, 34);
 
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/iconfinder_941-32_4619651.png"))); // NOI18N
         jButton3.setText("Vender");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,8 +92,9 @@ public class principal extends javax.swing.JFrame implements Runnable{
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(90, 470, 120, 31);
+        jButton3.setBounds(90, 470, 120, 34);
 
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/iconfinder_Cancel_1493282.png"))); // NOI18N
         jButton5.setText("Salir");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,15 +102,15 @@ public class principal extends javax.swing.JFrame implements Runnable{
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(669, 470, 70, 31);
+        jButton5.setBounds(669, 470, 120, 34);
 
-        setBounds(0, 0, 917, 594);
+        setBounds(0, 0, 957, 594);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         to_sell s = new to_sell();
-        s.setSize(900,500);
-        s.setLocation(5, 5);
+        s.setSize(1000,500);
+        s.setLocation(1, 5);
         panel.removeAll();
         panel.repaint();
         panel.revalidate();
