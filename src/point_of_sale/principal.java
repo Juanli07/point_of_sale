@@ -4,21 +4,37 @@
  * and open the template in the editor.
  */
 package point_of_sale;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import views.*;
+import SQL.connection;
+import java.util.List;
+import objects.*;
 /**
  *
  * @author juanchis
  */
 public class principal extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form principal
      */
     public principal() {
         initComponents();
-        
-    }
-
+         to_sell s = new to_sell();
+        s.setSize(900,500);
+        s.setLocation(5, 5);
+        panel.removeAll();
+        panel.repaint();
+        panel.revalidate();
+        panel.add(s);
+        s.setVisible(true);
+        panel.repaint();
+        panel.revalidate();
+     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
