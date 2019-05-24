@@ -16,12 +16,17 @@ import objects.*;
  *
  * @author juanchis
  */
-public class principal extends javax.swing.JFrame {
-    
+public class principal extends javax.swing.JFrame implements Runnable{
+    Thread hilo;
+    boolean hil=true;
     /**
      * Creates new form principal
      */
     public principal() {
+        hilo = new Thread(this);
+        hilo.start();
+     }
+    public principal(boolean t){
         initComponents();
          to_sell s = new to_sell();
         s.setSize(900,500);
@@ -33,7 +38,7 @@ public class principal extends javax.swing.JFrame {
         s.setVisible(true);
         panel.repaint();
         panel.revalidate();
-     }
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -145,4 +150,20 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JPanel panel;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void run() {
+        while(hil==true){
+            try{
+                Thread.sleep(0);
+            }catch (InterruptedException e){
+                System.out.println("ERROR");
+            }
+            Login n = new Login ();
+            n.setVisible(true);
+            n.setLocationRelativeTo(null);
+            this.setVisible(false);
+            hil=false;
+        }
+    }
 }

@@ -98,10 +98,13 @@ public class Login extends javax.swing.JFrame implements Runnable{
         connection c = new connection();
         List<user> u = c.getUsers();
         for(user o : u){
-            if(txtUsuario.equals(o.getUsername()) && pass.equals(o.getPass()) && txtUsuario.getText() != null){
-                continue;
+            System.out.println(o.getUsername());
+            if(o.getUsername().equals(txtUsuario.getText()) && o.getPass().equals(pass.getText())){
+                principal p = new principal(true);
+                p.setVisible(true);
+                p.setLocationRelativeTo(null);
             }else{
-                JOptionPane.showConfirmDialog(rootPane, "La contraseña o usuario no son correctos");
+                JOptionPane.showMessageDialog(null, "La contraseña o usuario no son correctos");
             }
         }
         this.setVisible(false);

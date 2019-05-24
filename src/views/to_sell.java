@@ -199,6 +199,8 @@ public class to_sell extends javax.swing.JPanel {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         total.setText("0.00");
+        connection c = new connection();
+        List<user> u = c.getUsers();
     }//GEN-LAST:event_jButton4ActionPerformed
 
 

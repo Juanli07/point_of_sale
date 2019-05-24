@@ -1,7 +1,6 @@
 package point_of_sale;
 
 import javax.swing.JOptionPane;
-import leagueadmin.*;
 
 public class Signin extends javax.swing.JFrame {
 public static String datos="", contra="";
@@ -125,9 +124,6 @@ public static String datos="", contra="";
             "\nContraseña: "+txtContra.getText();
             contra= txtContra.getText();
             if(Admi.isSelected()){
-              PrincipalWin n = new PrincipalWin();
-              n.setVisible(true);
-              n.setLocationRelativeTo(null);
               this.setVisible(false);
             }else{
                 
