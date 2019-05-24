@@ -28,6 +28,7 @@ public class add extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         txtCodeBar = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         txtProductName = new javax.swing.JTextField();
@@ -66,6 +67,7 @@ public class add extends javax.swing.JPanel {
         jLabel2.setText("Nombre de producto");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, -1, -1));
 
+        buttonGroup1.add(btnNewProduct);
         btnNewProduct.setText("Nuevo Producto");
         btnNewProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,6 +76,7 @@ public class add extends javax.swing.JPanel {
         });
         add(btnNewProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
+        buttonGroup1.add(btnAddInventary);
         btnAddInventary.setText("Agregar producto al inventario");
         btnAddInventary.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,7 +131,7 @@ public class add extends javax.swing.JPanel {
         char aux = evt.getKeyChar();
         String aux2 = txtCodeBar.getText();
         char aux3 = ' ';
-        if(aux >= '0' && aux <= '9'){
+        if(aux >= '0' && aux <= '9' ){
             txtCodeBar.setText(aux2);
         } else{
             txtCodeBar.setText(aux2.replace(aux2.charAt(aux2.length()), aux3));
@@ -173,7 +176,7 @@ public class add extends javax.swing.JPanel {
             repeated = false;
             aux++;
         }
-        if(!txtProductName.getText().equals("") && !txtQuantity.equals("") && newProduct){
+        if(!txtProductName.getText().equals("") && !txtQuantity.equals("") && newProduct && txtCodeBar.getText().length() == 13){
             c.saveProduct(new product(bCode, txtProductName.getText(), Integer.parseInt(txtQuantity.getText()), Float.parseFloat(txtPriceProduct.getText())));
         }
         if(!txtQuantity.equals("") && !newProduct){
@@ -201,6 +204,7 @@ public class add extends javax.swing.JPanel {
     private javax.swing.JRadioButton btnAddInventary;
     private javax.swing.JButton btnFinish;
     private javax.swing.JRadioButton btnNewProduct;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
