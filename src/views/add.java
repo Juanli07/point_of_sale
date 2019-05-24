@@ -131,7 +131,7 @@ public class add extends javax.swing.JPanel {
         char aux = evt.getKeyChar();
         String aux2 = txtCodeBar.getText();
         char aux3 = ' ';
-        if(aux >= '0' && aux <= '9' ){
+        if(aux >= '0' && aux <= '9' && aux2.length() < 13){
             txtCodeBar.setText(aux2);
         } else{
             txtCodeBar.setText(aux2.replace(aux2.charAt(aux2.length()), aux3));
@@ -139,11 +139,12 @@ public class add extends javax.swing.JPanel {
     }//GEN-LAST:event_txtCodeBarKeyTyped
 
     private void btnNewProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewProductActionPerformed
+        txtProductName.setEditable(false);
         newProduct = true;
     }//GEN-LAST:event_btnNewProductActionPerformed
 
     private void btnAddInventaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddInventaryActionPerformed
-        txtProductName.enable(false);
+        txtProductName.setEditable(true);
         newProduct = false;
     }//GEN-LAST:event_btnAddInventaryActionPerformed
 
@@ -176,7 +177,7 @@ public class add extends javax.swing.JPanel {
             repeated = false;
             aux++;
         }
-        if(!txtProductName.getText().equals("") && !txtQuantity.equals("") && newProduct){
+        if(!txtProductName.getText().equals("") && !txtQuantity.equals("") && newProduct && txtCodeBar.getText().length() == 13){
             c.saveProduct(new product(bCode, txtProductName.getText(), Integer.parseInt(txtQuantity.getText()), Float.parseFloat(txtPriceProduct.getText())));
         }
         if(!txtQuantity.equals("") && !newProduct){

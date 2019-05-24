@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package views;
 import SQL.connection;
 import java.util.Iterator;
@@ -10,17 +6,11 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import objects.*;
-/**
- *
- * @author juanchis
- */
+
 public class to_sell extends javax.swing.JPanel {
     static connection c = new connection();
     List<product> p;
     int j[] = new int[50];
-    /**
-     * Creates new form to_sell
-     */
     public to_sell() {
         initComponents();
     }
@@ -87,6 +77,7 @@ public class to_sell extends javax.swing.JPanel {
             }
         });
 
+        total.setEditable(false);
         total.setText("0.00");
         total.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,13 +158,14 @@ public class to_sell extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void totalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalActionPerformed
-        // TODO add your handling code here:
+        total.setEditable(false);
     }//GEN-LAST:event_totalActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if(table.getSelectedRow() != -1){
             float suma = Float.parseFloat(total.getText()) + (float)p.get(table.getSelectedRow()).getPrice();
             total.setText(String.valueOf(suma));
+            table.setValueAt(Integer.parseInt(table.getValueAt(table.getSelectedRow(), 2).toString())-1, table.getSelectedRow(), 2);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
