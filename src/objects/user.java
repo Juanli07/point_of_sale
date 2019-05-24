@@ -7,7 +7,7 @@ public class user {
     private String pass;
     private String full_name;
     
-    public user(int id, String username, String pass, String full_name){
+    public user(int id,String username, String pass, String full_name){
         this.id = id;
         this.username = username;
         this.pass = pass;

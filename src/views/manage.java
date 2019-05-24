@@ -4,9 +4,7 @@
  * and open the template in the editor.
  */
 package views;
-
-/**
- *
+ /*
  * @author juanchis
  */
 public class manage extends javax.swing.JPanel {
@@ -16,6 +14,7 @@ public class manage extends javax.swing.JPanel {
      */
     public manage() {
         initComponents();
+        
     }
 
     /**

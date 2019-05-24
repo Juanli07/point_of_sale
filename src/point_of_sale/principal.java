@@ -31,7 +31,6 @@ public class principal extends javax.swing.JFrame {
         panel = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,6 +53,11 @@ public class principal extends javax.swing.JFrame {
         panel.setBounds(20, 0, 910, 460);
 
         jButton2.setText("Agregar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2);
         jButton2.setBounds(250, 470, 130, 31);
 
@@ -66,11 +70,12 @@ public class principal extends javax.swing.JFrame {
         getContentPane().add(jButton3);
         jButton3.setBounds(90, 470, 120, 31);
 
-        jButton4.setText("Admi. inventario");
-        getContentPane().add(jButton4);
-        jButton4.setBounds(420, 470, 150, 31);
-
         jButton5.setText("Salir");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton5);
         jButton5.setBounds(669, 470, 70, 31);
 
@@ -90,6 +95,23 @@ public class principal extends javax.swing.JFrame {
         panel.revalidate();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        add s = new add();
+        s.setSize(900,500);
+        s.setLocation(5, 5);
+        panel.removeAll();
+        panel.repaint();
+        panel.revalidate();
+        panel.add(s);
+        s.setVisible(true);
+        panel.repaint();
+        panel.revalidate();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -104,7 +126,6 @@ public class principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JPanel panel;
     // End of variables declaration//GEN-END:variables

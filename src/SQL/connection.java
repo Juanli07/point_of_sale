@@ -21,7 +21,7 @@ public class connection {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con = (Connection) DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            JOptionPane.showMessageDialog(null, "CONEXION EXITOSA");
+             System.out.println("CONEXION EXITOSA");
         } catch (HeadlessException | ClassNotFoundException | SQLException e) {
             System.out.println("ERROR" + e.getMessage());
         }
@@ -64,11 +64,12 @@ public class connection {
         List<product> products = new ArrayList();
         try{
             Connection con = getConnection();
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM product WHERE code = "+code);
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM product WHERE code LIKE '"+code+"%'");
             ResultSet res= ps.executeQuery();
             while(res.next()){
                 products.add(new product(res.getInt("code"), res.getString("name"), res.getInt("quantity"), res.getFloat("price")));
             }
+            System.out.println(products.get(0).getName());
         }catch(SQLException e){
             System.out.println("No existen datos");
         }
@@ -79,7 +80,7 @@ public class connection {
         List<product> products = new ArrayList();
         try{
             Connection con = getConnection();
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM product LIKE name = "+name+"%");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM product WHERE name LIKE '"+name+"%'");
             ResultSet res= ps.executeQuery();
             while(res.next()){
                 products.add(new product(res.getInt("code"), res.getString("name"), res.getInt("quantity"), res.getFloat("price")));
