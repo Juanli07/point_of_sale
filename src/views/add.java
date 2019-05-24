@@ -176,7 +176,7 @@ public class add extends javax.swing.JPanel {
             repeated = false;
             aux++;
         }
-        if(!txtProductName.getText().equals("") && !txtQuantity.equals("") && newProduct && txtCodeBar.getText().length() == 13){
+        if(!txtProductName.getText().equals("") && !txtQuantity.equals("") && newProduct){
             c.saveProduct(new product(bCode, txtProductName.getText(), Integer.parseInt(txtQuantity.getText()), Float.parseFloat(txtPriceProduct.getText())));
         }
         if(!txtQuantity.equals("") && !newProduct){
